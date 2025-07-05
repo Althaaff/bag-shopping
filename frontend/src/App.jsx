@@ -12,6 +12,8 @@ import CheckOut from "./components/Cart/CheckOut";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
 import MyOrdersPage from "./pages/MyOrdersPage";
+import AdminLayout from "./components/Admin/AdminLayout";
+import AdminHomePage from "./pages/AdminHomePage";
 
 function App() {
   return (
@@ -21,23 +23,25 @@ function App() {
         <Routes>
           <Route path="/" element={<UserLayout />}>
             <Route index element={<Home />} />
-            <Route path="login" index element={<Login />} />
-            <Route path="register" index element={<Register />} />
-            <Route path="profile" index element={<Profile />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="profile" element={<Profile />} />
             <Route
               path="collections/:collection"
-              index
               element={<CollectionPage />}
             />
-            <Route path="product/:id" index element={<ProductDetails />} />
-            <Route path="checkout" index element={<CheckOut />} />
+            <Route path="product/:id" element={<ProductDetails />} />
+            <Route path="checkout" element={<CheckOut />} />
             <Route
               path="order-confirmation"
-              index
               element={<OrderConfirmationPage />}
             />
             <Route path="my-orders" element={<MyOrdersPage />} />
-            <Route path="order/:id" index element={<OrderDetailsPage />} />
+            <Route path="order/:id" element={<OrderDetailsPage />} />
+            {/* admin route */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminHomePage />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
@@ -46,4 +50,3 @@ function App() {
 }
 
 export default App;
-//
